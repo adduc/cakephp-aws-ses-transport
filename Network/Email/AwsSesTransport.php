@@ -91,7 +91,7 @@ class AwsSesTransport extends AbstractTransport
     public function send(CakeEmail $email) {
         $this->_lastResponse = null;
         $this->generateSes();
-        $headers = $this->_headersToString($email->getHeaders(array('from', 'sender', 'replyTo', 'readReceipt', 'returnPath', 'to', 'cc', 'subject')));
+        $headers = $this->_headersToString($email->getHeaders(array('from', 'sender', 'replyTo', 'readReceipt', 'returnPath', 'to', 'cc', 'bcc', 'subject')));
         $message = implode("\r\n", (array)$email->message());
 
         $rawData = $headers . "\r\n\r\n" . $message;
